@@ -1,0 +1,25 @@
+# Archivos y carpetas comunes de Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de build
+bin/
+obj/
+
+# Archivos de SQLite u otros bloqueados
+*.db
+*.db.lock
+
+# Otros temporales
+*.log
+*.cache
+*.tmp
+*.pid
+*.swp
+
+# Archivos del sistema
+Thumbs.db
+.DS_Store

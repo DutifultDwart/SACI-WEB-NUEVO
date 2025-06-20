@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F1023B1C-3A6B-484C-B5F1-2EA3D5999F99}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SACI_MEX</RootNamespace>
+    <AssemblyName>SACI_MEX</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxThemes.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.Bootstrap.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.Resources.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1.Web, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EasyXLS, Version=9.1.0.0, Culture=neutral, PublicKeyToken=632c31013494909a, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyXLS.Professional.9.1.0\lib\net4\EasyXLS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.4.1.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.4.1.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SecurityRiosul, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SAC_WEB\SACI_WEB\bin\SecurityRiosul.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IO.Compression.FileSystem">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\sticky-footer.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="DelphiLibrary.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="fonts\webfonts\fa-brands-400.eot" />
+    <Content Include="fonts\webfonts\fa-brands-400.ttf" />
+    <Content Include="fonts\webfonts\fa-brands-400.woff" />
+    <Content Include="fonts\webfonts\fa-brands-400.woff2" />
+    <Content Include="fonts\webfonts\fa-regular-400.eot" />
+    <Content Include="fonts\webfonts\fa-regular-400.ttf" />
+    <Content Include="fonts\webfonts\fa-regular-400.woff" />
+    <Content Include="fonts\webfonts\fa-regular-400.woff2" />
+    <Content Include="fonts\webfonts\fa-solid-900.eot" />
+    <Content Include="fonts\webfonts\fa-solid-900.ttf" />
+    <Content Include="fonts\webfonts\fa-solid-900.woff" />
+    <Content Include="fonts\webfonts\fa-solid-900.woff2" />
+    <Content Include="Formularios\AnalisisEstructura.aspx" />
+    <Content Include="Formularios\catCapitulos.aspx" />
+    <Content Include="Formularios\catCasosRegla.aspx" />
+    <Content Include="Formularios\catNota.aspx" />
+    <Content Include="Formularios\catNotasCapitulo.aspx" />
+    <Content Include="Formularios\catRegion.aspx" />
+    <Content Include="Formularios\catReglaOrigen.aspx" />
+    <Content Include="Formularios\catTratados.aspx" />
+    <Content Include="Formularios\procCargaBOM.aspx" />
+    <Content Include="Formularios\procCartaMateriales.aspx" />
+    <Content Include="img\del.png" />
+    <Content Include="img\edit.png" />
+    <Content Include="img\ico_doc.png" />
+    <Content Include="img\ico_engrane.png" />
+    <Content Include="img\ico_nuevo.png" />
+    <Content Include="img\LogoEmpresa.png" />
+    <Content Include="Layouts\Layout_CTM.xlsx" />
+    <Content Include="Layouts\Layout_AAnual_Ventas.xlsx" />
+    <Content Include="Files\LAYOUT AJUSTE ANUAL INV FINAL.xlsx" />
+    <Content Include="Files\LAYOUT AJUSTE ANUAL INV INICIAL.xlsx" />
+    <Content Include="Layouts\Layout_AcDes.xlsx" />
+    <Content Include="Layouts\Layout_Facturas.xlsx" />
+    <Content Include="Layouts\Layout_Carta_Materiales.xlsx" />
+    <Content Include="Layouts\Layout_Clientes.xlsx" />
+    <Content Include="Layouts\Layout_Materiales.xlsx" />
+    <Content Include="Layouts\Layout_Productos.xlsx" />
+    <Content Include="Layouts\Layout_Proveedores.xlsx" />
+    <Content Include="packages.config" />
+    <Content Include="Layouts\Layout_Facturas_Servicios.xlsx" />
+    <Content Include="LicenciaEasyXLS\license.lic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Layouts\Layout_Pedimentos_Adient.xlsx" />
+    <Content Include="Layouts\Layout_OrdenesFabricacion.xlsx" />
+    <Content Include="Layouts\Layout_ActivoFijo.xlsx" />
+    <Content Include="Layouts\Layout_Dirigidos.xlsx" />
+    <Content Include="Layouts\Layout_BOM.xlsx" />
+    <None Include="Properties\PublishProfiles\SACI_MEX.pubxml" />
+    <Content Include="ScriptsSaci\cargaDirigidos.js" />
+    <Content Include="ScriptsSaci\catCapitulos.js" />
+    <Content Include="ScriptsSaci\catTratados.js" />
+    <Content Include="ScriptsSaci\InterfaceOrdFabricacion.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Clases\AppUtils.JS.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap3.min.css" />
+    <Content Include="Content\mdb3.min.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Formularios\default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\all.css" />
+    <Content Include="fonts\font-awesome3.css" />
+    <Content Include="Formularios\catClientes.aspx" />
+    <Content Include="Formularios\catDatosGenerales.aspx" />
+    <Content Include="Formularios\catMateriales.aspx" />
+    <Content Include="Formularios\catProductos.aspx" />
+    <Content Include="Formularios\catProveedores.aspx" />
+    <Content Include="Formularios\catActividades.aspx" />
+    <Content Include="Formularios\catUsuarios.aspx" />
+    <Content Include="Formularios\Cat_Perfiles.aspx" />
+    <Content Include="Formularios\frmErrores.aspx" />
+    <Content Include="Formularios\WebServices\Importaciones.asmx" />
+    <Content Include="Formularios\WebServices\Principal.asmx" />
+    <Content Include="img\bootstrap3.min.js" />
+    <Content Include="img\catalogo.png" />
+    <Content Include="img\document.png" />
+    <Content Include="img\download-information.png" />
+    <Content Include="img\e-learning.png" />
+    <Content Include="img\exis.png" />
+    <Content Include="img\home.png" />
+    <Content Include="img\LogoSAC.jpg" />
+    <Content Include="img\LogoSac.png" />
+    <Content Include="img\mdb3.min.js" />
+    <Content Include="img\notes.png" />
+    <Content Include="img\progress-report.png" />
+    <Content Include="img\report.png" />
+    <Content Include="img\settings.png" />
+    <Content Include="img\settings1.png" />
+    <Content Include="img\shopping-cart.png" />
+    <Content Include="img\upload.png" />
+    <Content Include="img\ver.png" />
+    <Content Include="img\warning.PNG" />
+    <Content Include="img\warningRed.png" />
+    <Content Include="img\writing.png" />
+    <Content Include="img\x_exis.png" />
+    <Content Include="img\x_paloma.png" />
+    <Content Include="Formularios\JS\bootstrap3.min.js" />
+    <Content Include="Formularios\JS\jsGeneral.js" />
+    <Content Include="Formularios\JS\mdb.min.js" />
+    <Content Include="Formularios\JS\mdb3.min.js" />
+    <Content Include="Formularios\Login.aspx" />
+    <Content Include="ScriptsSaci\ActasDestruccion.js" />
+    <Content Include="ScriptsSaci\ActivoFijo.js" />
+    <Content Include="ScriptsSaci\aes.js" />
+    <Content Include="ScriptsSaci\Anexo31.js" />
+    <Content Include="ScriptsSaci\CambioRegimen.js" />
+    <Content Include="ScriptsSaci\cargaActaDestruc.js" />
+    <Content Include="ScriptsSaci\CargaCartaMateriales.js" />
+    <Content Include="ScriptsSaci\CargaCtm.js" />
+    <Content Include="ScriptsSaci\cargaFactura.js" />
+    <Content Include="ScriptsSaci\catActividades.js" />
+    <Content Include="ScriptsSaci\Catalogos.js" />
+    <Content Include="ScriptsSaci\catClientes.js" />
+    <Content Include="ScriptsSaci\catProductos.js" />
+    <Content Include="ScriptsSaci\catProductos1.js" />
+    <Content Include="ScriptsSaci\CT.js" />
+    <Content Include="ScriptsSaci\DescargosDirigidos.js" />
+    <Content Include="ScriptsSaci\Exportaciones.js" />
+    <Content Include="ScriptsSaci\Facturacion.js" />
+    <Content Include="ScriptsSaci\Importaciones.js" />
+    <Content Include="ScriptsSaci\infConsultas.js" />
+    <Content Include="ScriptsSaci\Informes.js" />
+    <Content Include="ScriptsSaci\InterfazClientes.js" />
+    <Content Include="ScriptsSaci\InterfazMateriales.js" />
+    <Content Include="ScriptsSaci\InterfazProductos.js" />
+    <Content Include="ScriptsSaci\InterfazProveedores.js" />
+    <Content Include="ScriptsSaci\pagInicio.js" />
+    <Content Include="ScriptsSaci\Regularizaciones.js" />
+    <Content Include="Formularios\Scripts\bootstrap.bundle.js" />
+    <Content Include="Formularios\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Formularios\Scripts\bootstrap.js" />
+    <Content Include="Formularios\Scripts\bootstrap.min.js" />
+    <Content Include="Formularios\Scripts\esm\popper-utils.js" />
+    <Content Include="Formularios\Scripts\esm\popper-utils.min.js" />
+    <Content Include="Formularios\Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Formularios\Scripts\esm\popper-utils.js.map" />
+    <Content Include="Formularios\Scripts\esm\popper.js" />
+    <Content Include="Formularios\Scripts\esm\popper.min.js" />
+    <Content Include="Formularios\Scripts\esm\popper.min.js.map" />
+    <Content Include="Formularios\Scripts\esm\popper.js.map" />
+    <Content Include="Formularios\Scripts\bootstrap.min.js.map" />
+    <Content Include="Formularios\Scripts\bootstrap.js.map" />
+    <Content Include="Formularios\Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Formularios\Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Formularios\Principal.Master" />
+    <Content Include="Formularios\Scripts\index.d.ts" />
+    <None Include="Formularios\Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Formularios\Scripts\jquery-3.3.1.js" />
+    <Content Include="Formularios\Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Formularios\Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Formularios\Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Formularios\Scripts\popper-utils.js" />
+    <Content Include="Formularios\Scripts\popper-utils.min.js" />
+    <Content Include="Formularios\Scripts\popper.js" />
+    <Content Include="Formularios\Scripts\popper.min.js" />
+    <Content Include="Formularios\Scripts\umd\popper-utils.js" />
+    <Content Include="Formularios\Scripts\umd\popper-utils.min.js" />
+    <Content Include="Formularios\Scripts\umd\popper.js" />
+    <Content Include="Formularios\Scripts\umd\popper.min.js" />
+    <Content Include="Formularios\SideBarCss\bootstrap.css" />
+    <Content Include="Formularios\SideBarCss\bootstrap.min.css" />
+    <Content Include="Formularios\SideBarCss\custom-themes.css" />
+    <Content Include="Formularios\SideBarCss\custom.css" />
+    <Content Include="Formularios\SideBarCss\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Formularios\SideBarCss\mdb.css" />
+    <Content Include="Formularios\SideBarCss\mdb.lite.css" />
+    <Content Include="Formularios\SideBarCss\mdb.lite.min.css" />
+    <Content Include="Formularios\SideBarCss\mdb.min.css" />
+    <Content Include="Formularios\SideBarCss\style.css" />
+    <Content Include="Formularios\SideBarCss\style.min.css" />
+    <Content Include="Formularios\SidebarJS\bootstrap.js" />
+    <Content Include="Formularios\SidebarJS\bootstrap.min.js" />
+    <Content Include="Formularios\SidebarJS\custom.js" />
+    <Content Include="Formularios\SidebarJS\jquery-3.3.1.min.js" />
+    <Content Include="Formularios\SidebarJS\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Formularios\SidebarJS\mdb.js" />
+    <Content Include="Formularios\SidebarJS\mdb.min.js" />
+    <Content Include="Formularios\SidebarJS\popper.min.js" />
+    <Content Include="Formularios\Styles\styles.css" />
+    <Content Include="Formularios\Styles\styleSideBar.css" />
+    <Content Include="ScriptsSaci\TransferenciaSubmaq.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Formularios\Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Formularios\Scripts\umd\popper-utils.js.map" />
+    <Content Include="Formularios\Scripts\umd\popper.min.js.map" />
+    <Content Include="Formularios\Scripts\umd\popper.js.map" />
+    <Content Include="Formularios\Scripts\README.md" />
+    <Content Include="Formularios\Scripts\popper-utils.min.js.map" />
+    <Content Include="Formularios\Scripts\popper-utils.js.map" />
+    <Content Include="Formularios\Scripts\popper.min.js.map" />
+    <Content Include="Formularios\Scripts\popper.js.map" />
+    <Content Include="Formularios\Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Formularios\Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\AppUtils.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AnalisisEstructura.aspx.cs">
+      <DependentUpon>AnalisisEstructura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\AnalisisEstructura.aspx.designer.cs">
+      <DependentUpon>AnalisisEstructura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catCapitulos.aspx.cs">
+      <DependentUpon>catCapitulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catCapitulos.aspx.designer.cs">
+      <DependentUpon>catCapitulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catCasosRegla.aspx.cs">
+      <DependentUpon>catCasosRegla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catCasosRegla.aspx.designer.cs">
+      <DependentUpon>catCasosRegla.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catNota.aspx.cs">
+      <DependentUpon>catNota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catNota.aspx.designer.cs">
+      <DependentUpon>catNota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catNotasCapitulo.aspx.cs">
+      <DependentUpon>catNotasCapitulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catNotasCapitulo.aspx.designer.cs">
+      <DependentUpon>catNotasCapitulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catRegion.aspx.cs">
+      <DependentUpon>catRegion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catRegion.aspx.designer.cs">
+      <DependentUpon>catRegion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catReglaOrigen.aspx.cs">
+      <DependentUpon>catReglaOrigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catReglaOrigen.aspx.designer.cs">
+      <DependentUpon>catReglaOrigen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catTratados.aspx.cs">
+      <DependentUpon>catTratados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catTratados.aspx.designer.cs">
+      <DependentUpon>catTratados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catClientes.aspx.cs">
+      <DependentUpon>catClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catClientes.aspx.designer.cs">
+      <DependentUpon>catClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catDatosGenerales.aspx.cs">
+      <DependentUpon>catDatosGenerales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catDatosGenerales.aspx.designer.cs">
+      <DependentUpon>catDatosGenerales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catMateriales.aspx.cs">
+      <DependentUpon>catMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catMateriales.aspx.designer.cs">
+      <DependentUpon>catMateriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catProductos.aspx.cs">
+      <DependentUpon>catProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catProductos.aspx.designer.cs">
+      <DependentUpon>catProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catProveedores.aspx.cs">
+      <DependentUpon>catProveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catProveedores.aspx.designer.cs">
+      <DependentUpon>catProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catActividades.aspx.cs">
+      <DependentUpon>catActividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catActividades.aspx.designer.cs">
+      <DependentUpon>catActividades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\catUsuarios.aspx.cs">
+      <DependentUpon>catUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\catUsuarios.aspx.designer.cs">
+      <DependentUpon>catUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cat_Perfiles.aspx.cs">
+      <DependentUpon>Cat_Perfiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cat_Perfiles.aspx.designer.cs">
+      <DependentUpon>Cat_Perfiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Principal.Master.cs">
+      <DependentUpon>Principal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Principal.Master.designer.cs">
+      <DependentUpon>Principal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmErrores.aspx.cs">
+      <DependentUpon>frmErrores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmErrores.aspx.designer.cs">
+      <DependentUpon>frmErrores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\procCargaBOM.aspx.cs">
+      <DependentUpon>procCargaBOM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\procCargaBOM.aspx.designer.cs">
+      <DependentUpon>procCargaBOM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\procCartaMateriales.aspx.cs">
+      <DependentUpon>procCartaMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\procCartaMateriales.aspx.designer.cs">
+      <DependentUpon>procCartaMateriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\WebServices\Importaciones.asmx.cs">
+      <DependentUpon>Importaciones.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\WebServices\Principal.asmx.cs">
+      <DependentUpon>Principal.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\Anexo31AnaliDescarga\" />
+    <Folder Include="Files\Anexo31Descarga\" />
+    <Folder Include="Files\Complementario\" />
+    <Folder Include="Files\CTMFactura\" />
+    <Folder Include="Files\F4Desperdicios\" />
+    <Folder Include="Files\Material\" />
+    <Folder Include="Files\Permisos\" />
+    <Folder Include="Files\Productos\" />
+    <Folder Include="Files\Rectificaciones\" />
+    <Folder Include="Formularios\Log\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SACI.Datos\SACI.Datos.csproj">
+      <Project>{a9b118cc-0b5e-4f47-8f38-5d489d149fc3}</Project>
+      <Name>SACI.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SACI.Negocio\SACI.Negocio.csproj">
+      <Project>{389e7056-99be-4b2d-bcdb-81858c116602}</Project>
+      <Name>SACI.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>25555</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25312/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,516 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="SACI_MEX.Formularios.Principal" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Sistema de Origen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <!-- Bootstrap core CSS 3 -->
+    <link href="../Content/sticky-footer.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/mdb3.min.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="SideBarCss/bootstrap.css" />
+    <link rel="stylesheet" href="SideBarCss/bootstrap.min.css" />
+
+
+    <link rel="stylesheet" href="../fonts/all.css" />
+    <link rel="stylesheet" href="SideBarCss/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="SideBarCss/custom.css" />
+    <link rel="stylesheet" href="SideBarCss/custom-themes.css" />
+    <!-- Estilos Personales -->
+    <link href="Styles/styles.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" type="image/png" href="../favicon.ico" />
+
+    <link href="../Content/style.css" rel="stylesheet" type="text/css" />
+
+
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/popper.min.js"></script>
+    <script src="../ScriptsSaci/aes.js"></script>
+    <script src="SidebarJS/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="SidebarJS/custom.js"></script>
+    <script src="JS/jsGeneral.js"></script>
+    <script type="text/javascript" src="SidebarJS/popper.min.js"></script>
+    <script type="text/javascript" src="SidebarJS/bootstrap.min.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+
+
+        function Salir() {
+            $.ajax({
+                type: "POST",
+                url: "../Formularios/WebServices/Principal.asmx/CerrarSesion",
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function () {
+                    window.location.href = "../Default.aspx";
+                },
+                error: function () {
+                    alert('Ya se cerró la sesión anteriormente, favor de cerrar esta pestaña.')
+                }
+            });
+        }
+
+    </script>
+    <style>
+        .main {
+            padding: 50px 12px;
+            margin: 12px 8px 8px 8px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <%-- <header>--%>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-toggler navbar-expand-lg scrolling-navbar double-nav fixed-top" style="width: 100%; height: 45px; position: static" runat="server" id="navMenu" visible="false">
+
+        <div class="float-left sidebar-brand">
+            <a id="show-sidebar" href="#" data-activates="slide-out" class="button-collapse black-text"><i class="fa fa-bars"></i></a>
+        </div>
+
+
+        <ul class="nav navbar-nav nav-flex-icons ml-auto">
+
+            <li class="nav-item">
+                <a class="nav-link"><i></i><span class="clearfix d-none d-sm-inline-block" id="lblEmpresa" runat="server" visible="false">Support</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"><i class="fa fa-user"></i><span class="clearfix d-none d-sm-inline-block" id="lblUsuario" runat="server">Account</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color: black">Gestión
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" onclick="Salir()">Cerrar Sesión</a>
+                    <%--<a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a>--%>
+                    <a id="CatUsuarios" runat="server" class="dropdown-item" href="../Formularios/catUsuarios.aspx">Usuarios</a>
+                    <a id="CatActividades" runat="server" class="dropdown-item" href="../Formularios/catActividades.aspx">Actividades</a>
+                    <a id="CatPerfiles" runat="server" class="dropdown-item" href="../Formularios/Cat_Perfiles.aspx">Perfiles</a>
+
+                </div>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Usuarios</a>
+
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.Navbar -->
+
+    <!-- sidebar-wrapper  -->
+
+    <div class="page-wrapper chiller-theme sidebar-bg " id="divside" style="height: auto">
+
+        <nav id="sidebar" class="sidebar-wrapper blue">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#"></a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <%--<li class="sidebar-dropdown">
+                            <a href="#">
+                                <i>
+                                    <img src="../img/home.png" /></i>
+                                <span>Inicio</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../default.aspx">
+                                            <span>Inicio</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>--%>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i>
+                                    <img src="../img/e-learning.png" /></i>
+                                <span>Catálogos</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <%--<li id="DtsGrales" runat="server">
+                                        <a href="catDatosGenerales.aspx">Datos Generales</a>
+                                    </li>--%>
+                                    <%--<li id="TipMat" runat="server">
+                                        <a href="catTipoDeMaterial.aspx">Tipo de Material</a>
+                                    </li>--%>
+
+                                    <li id="Mat" runat="server">
+                                        <a href="catMateriales.aspx">Materiales</a>
+                                    </li>
+                                    <li id="Prod" runat="server">
+                                        <a href="catProductos.aspx">Productos</a>
+                                    </li>
+                                    <li id="Prov" runat="server">
+                                        <a href="catProveedores.aspx">Proveedores</a>
+                                    </li>
+                                    <li id="Ctes" runat="server">
+                                        <a href="catClientes.aspx">Clientes</a>
+                                    </li>
+                                    <li id="Trat" runat="server">
+                                        <a href="catTratados.aspx">Tratados</a>
+                                    </li>
+                                    <li id="Capit" runat="server">
+                                        <a href="catCapitulos.aspx">Capítulos</a>
+                                    </li>
+                                    <li id="ReglaOrigen" runat="server">
+                                        <a href="catReglaOrigen.aspx">Reglas Origen</a>
+                                    </li>
+                                     <li id="CasoRegla" runat="server">
+                                        <a href="catCasosRegla.aspx">Casos Regla</a>
+                                    </li>
+
+                                    <li id="Region" runat="server">
+                                        <a href="catRegion.aspx">Región</a>
+                                    </li>
+                                    <li id="Nota" runat="server">
+                                        <a href="catNota.aspx">Nota</a>
+                                    </li>
+                                    <li id="NCapit" runat="server">
+                                        <a href="catNotasCapitulo.aspx">Notas Capítulos</a>
+                                    </li>
+
+
+                                    <%--<li id="AgAdu" runat="server">
+                                        <a href="catAgentes.aspx">Agentes Aduanales</a>
+                                    </li>
+                                    <li id="SubMaq" runat="server">
+                                        <a href="catSubmaquilas.aspx">Submaquilas</a>
+                                    </li>
+                                    <li id="ActF" runat="server">
+                                        <a href="catActivoFijo.aspx">Activo Fijo</a>
+                                    </li>
+                                    <li id="Cat" runat="server">
+                                        <a href="catCategorias.aspx">Categorías</a>
+                                    </li>
+                                    <li id="DivAlm" runat="server">
+                                        <a href="catDivisionYAlmacenes.aspx">División y Almacenes</a>
+                                    </li>
+                                    <li id="Uni" runat="server">
+                                        <a href="catUnidades.aspx">Unidades</a>
+                                    </li>
+                                    <li id="Permi" runat="server">
+                                        <a href="catPermisos.aspx">Permisos</a>
+                                    </li>--%>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <%--<li class="sidebar-dropdown">
+                            <a href="#">
+                                <i>
+                                    <img src="../img/writing.png" /></i>
+                                <span>B. Módulos de Captura</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li id="Impo" runat="server">
+                                        <a href="procImportaciones.aspx">Importación</a>
+                                    </li>
+                                    <li id="Expo" runat="server">
+                                        <a href="procExportaciones.aspx">Exportación</a>
+                                    </li>
+                                    <li id="CReg" runat="server">
+                                        <a href="procCambioRegimen.aspx">Cambios de régimen</a>
+                                    </li>
+                                    <li id="ActFij" runat="server">
+                                        <a href="procActivoFijo.aspx">Activo Fijo</a>
+                                    </li>
+                                    <li id="Regu" runat="server">
+                                        <a href="procRegularizaciones.aspx">Regularizaciones</a>
+                                    </li>
+                                    <li id="ActDest" runat="server">
+                                        <a href="procActasDestruccion.aspx">Actas de destrucción</a>
+                                    </li>
+                                    <li id="DescDir" runat="server">
+                                        <a href="procDescargosDirigidos.aspx">Descargos dirigidos</a>
+                                    </li>
+                                    <li id="ConstTran" runat="server">
+                                        <a href="procConstanciasTransferencia.aspx">Constancias de Transferencia</a>
+                                    </li>
+                                    <li id="TransSubMaq" runat="server">
+                                        <a href="procTransferenciaSubMaq.aspx">Transferencia Submaquila</a>
+                                    </li>
+                                    <li id="RetornoSubMaq" runat="server">
+                                        <a href="../default.aspx">Retorno Submaquila</a>
+                                    </li>
+                                    <li id="Facturacion" runat="server">
+                                        <a href="procFcturacion.aspx">Facturación</a>
+                                    </li>
+                                    <li id="FactServicios" runat="server">
+                                        <a href="procFacturacionServ.aspx">Facturación Servicios</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>--%>
+                        <%--<li class="sidebar-dropdown">
+                            <a href="#">
+                                <i>
+                                    <img src="../img/download-information.png" /></i>
+                                <span>C. Descargas</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+
+                                    <li id="BloqDes" runat="server">
+                                        <a href="procBloquearDescarga.aspx">Bloqueo de descargos</a>
+                                    </li>
+                                    <li id="Desc" runat="server">
+                                        <a href="procDescargos.aspx">Descargos</a>
+                                    </li>
+                                    <li id="AnaDesc" runat="server">
+                                        <a href="rptAnalisisDescarga.aspx">Análisis de descarga</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>--%>
+                        <%--<li class="sidebar-dropdown">
+                            <a href="#">
+                                <i>
+                                    <img src="../img/progress-report.png" /></i>
+                                <span>Informes</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li id="ISaldos" runat="server">
+                                        <a href="rptSaldos.aspx">Saldos</a>
+                                    </li>
+                                    <li id="ISalFec" runat="server">
+                                        <a href="rptSaldosFecha.aspx">Saldos a la fecha</a>
+                                    </li>
+                                    <li id="IEstruc" runat="server">
+                                        <a href="rptEstructuras.aspx">Estructuras</a>
+                                    </li>
+                                    <li id="IImpo" runat="server">
+                                        <a href="rptImportaciones.aspx">Importaciones</a>
+                                    </li>
+                                    <li id="IExpo" runat="server">
+                                        <a href="rptExportaciones.aspx">Exportaciones</a>
+                                    </li>
+                                    <li id="IHistI" runat="server">
+                                        <a href="rptHistoriaDeDescargosPorImportacion.aspx">Historia de descargos por Importación</a>
+                                    </li>
+                                    <li id="IHistE" runat="server">
+                                        <a href="rptHistoriaDeDescargosPorExportacion.aspx">Historia de descargos por Exportación</a>
+                                    </li>
+                                    <li id="IVenc" runat="server">
+                                        <a href="rptVencimientos.aspx">Vencimientos</a>
+                                    </li>
+                                    <li id="ICtm" runat="server">
+                                        <a href="rptDescargosF4CTMA.aspx">Descargos F4/CTMA</a>
+                                    </li>
+                                    <li id="IDesp" runat="server">
+                                        <a href="rptDescargosF4Desperdicios.aspx">Descargos F4/Desperdicios</a>
+                                    </li>
+                                    <li id="ICompul" runat="server">
+                                        <a href="rptCompulsa.aspx">Compulsa</a>
+                                    </li>
+                                    <li id="IDirig" runat="server">
+                                        <a href="rptDirigidos.aspx">Dirigidos</a>
+                                    </li>
+                                    <li id="IfDesScrap" runat="server">
+                                        <a href="rptDescargasSCRAP.aspx">Descargas SCRAP</a>
+                                    </li>
+                                    <li id="IPermisos" runat="server">
+                                        <a href="rptPermisos.aspx">Permisos</a>
+                                    </li>
+                                    <li id="Consultas" runat="server">
+                                        <a href="catConsultas.aspx">Consultas</a>
+                                    </li>
+                                   
+                                    <li id="IRectificacion" runat="server">
+                                        <a href="rptRectificaciones.aspx">Rectificaciones</a>
+                                    </li>
+                                    <li id="IExpDescargos" runat="server">
+                                        <a href="rptExpoDescargos.aspx">Descargos</a>
+                                    </li>
+                                    
+                                    <li id="IfComplementario" runat="server">
+                                        <a href="rptComplementario.aspx">Complementario T-MEC</a>
+                                    </li>
+
+                                    
+                                    <li id="ICF4CTMA" runat="server">
+                                        <a href="rptConsolidadoF4CTMA.aspx">Consolidado F4CTMA</a>
+                                    </li>
+                                    <li id="ICCTM" runat="server">
+                                        <a href="rptConsolidadoCTM.aspx">Consolidado CTM Factura</a>
+                                    </li>
+                                    <li id="ICHDE" runat="server">
+                                        <a href="rptConsolidadoHDE.aspx">Consolidado HDE</a>
+                                    </li>
+                                    <li id="ICSAL" runat="server">
+                                        <a href="rptConsolidadoSaldos.aspx">Consolidado Saldos</a>
+                                    </li>
+                                    <li id="ICMATE" runat="server">
+                                        <a href="rptConsolidadoMaterial.aspx">Consolidado Material</a>
+                                    </li>
+                                    <li id="ICPROD" runat="server">
+                                        <a href="rptConsolidadoProductos.aspx">Consolidado Productos</a>
+                                    </li>
+                                    <li id="ICESTR" runat="server">
+                                        <a href="rptConsolidadoEstructuras.aspx">Consolidado Estructuras</a>
+                                    </li>
+                                    <li id="IMAUT" runat="server">
+                                        <a href="rptMaterialesUtilizados.aspx">Materiales Utilizados</a>
+                                    </li>
+
+                                    <li id="IFDEAF" runat="server">
+                                        <a href="rptDeModuloActivoFijo.aspx">d) Módulo de Activo Fijo.</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>--%>
+                       <%-- <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i>
+                                    <img src="../img/notes.png" /></i>
+                                <span>Informes Anexo 30</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li id="Desc31" runat="server">
+                                        <a href="rtpAnexo31.aspx">Inf. de descargos Anexo 30</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>--%>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i>
+                                    <img src="../img/document.png" /></i>
+                                <span>Interfaces</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                   <%-- <li id="IFCTM" runat="server">
+                                        <a href="procCTM.aspx">CTM</a>
+                                    </li>--%>
+                                    <%--<li id="IFCMAT" runat="server">
+                                        <a href="procCartaMateriales.aspx">Carta de Materiales</a>
+                                    </li>--%>
+                                    <li id="ITBOM" runat="server">
+                                        <a href="procCargaBOM.aspx">Carta de Materiales</a>
+                                    </li>
+                                    <%--<li id="IFMAT" runat="server">
+                                        <a href="intMateriales.aspx">Materiales</a>
+                                    </li>
+                                    <li id="ITPROD" runat="server">
+                                        <a href="intProductos.aspx">Productos</a>
+                                    </li>
+                                    <li id="ITCTES" runat="server">
+                                        <a href="intClientes.aspx">Clientes</a>
+                                    </li>
+                                    <li id="ITPORV" runat="server">
+                                        <a href="intProveedores.aspx">Proveedores</a>
+                                    </li>
+                                    <li id="IACTADEST" runat="server">
+                                        <a href="intActasDestruccion.aspx">Actas de destrucción</a>
+                                    </li>
+                                    <li id="IFACTU" runat="server">
+                                        <a href="intFacturacion.aspx">Facturación</a>
+                                    </li>
+                                    <li id="IFACTS" runat="server">
+                                        <a href="intFacturacionServ.aspx">Facturación Servicios</a>
+                                    </li>
+                                    <li id="IPED" runat="server">
+                                        <a href="intPedimentos.aspx">Pedimentos</a>
+                                    </li>
+                                    <li id="IPROC" runat="server">
+                                        <a href="intProcesos.aspx">Procesos</a>
+                                    </li>
+                                    <li id="IORDF" runat="server">
+                                        <a href="intOrdenesFabricacion.aspx">Ordenes de Fabricación</a>
+                                    </li>
+                                    <li id="IAFI" runat="server">
+                                        <a href="intActivoFijo.aspx">Activo Fijo</a>
+                                    </li>
+                                    <li id="IDIR" runat="server">
+                                        <a href="intDirigidos.aspx">Dirigidos</a>
+                                    </li>--%>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i>
+                                    <img src="../img/document.png" /></i>
+                                <span>Análisis</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li id="AnaEstr" runat="server">
+                                        <a href="AnalisisEstructura.aspx">Análisis Estructura</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+
+        </nav>
+
+
+
+        <!-- <main> -->
+
+        <!-- </main> -->
+
+
+
+
+    </div>
+
+
+    <form runat="server">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ScriptSection" runat="server"></asp:ContentPlaceHolder>
+    </form>
+
+
+
+    <footer id="divFooter" runat="server" class="footer" style="background-color: #1E3547; vertical-align: bottom;">
+        <div class="container">
+            <table style="width: 100%; border-spacing: 0px; padding: 0px" border="0">
+                <tr>
+                    <td style="width: 100%; text-align: center; font-size: 10pt">
+                        <h6 id="foH6" runat="server" style="color: white; font-size: small">Sistema de Origen System by SAC Grupo de Ingeniería S.A. de C.V &copy; <%: DateTime.Now.Year %>. Todos los derechos reservados. &#10;
+                            <br />
+                            Se prohibe cualquier reproducción total o parcial de este contenido sin autorización por escrito de su titular. 
+                        </h6>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </footer>
+
+</body>
+</html>
